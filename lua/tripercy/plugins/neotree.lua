@@ -9,6 +9,11 @@ return {
 	},
 
 	config = function()
-		require("neo-tree").setup()
+		require("neo-tree").setup({
+			filesystem = {
+				hijack_netrw_behavior = "disabled",
+			},
+		})
+		vim.keymap.set("n", "<C-S-E>", "<Cmd>Neotree float<CR>")
 	end,
 }
