@@ -1,2 +1,1 @@
-require('tripercy')
-
+require("tripercy")
