@@ -10,10 +10,13 @@ return {
 
 	config = function()
 		require("neo-tree").setup({
-			filesystem = {
-				hijack_netrw_behavior = "disabled",
+			window = {
+				position = "float",
 			},
+			-- filesystem = {
+			-- 	hijack_netrw_behavior = "disabled",
+			-- },
 		})
-		vim.keymap.set("n", "<C-S-E>", "<Cmd>Neotree float<CR>")
+		vim.keymap.set("n", "<C-S-E>", "<Cmd>Neotree float reveal<CR>")
 	end,
 }

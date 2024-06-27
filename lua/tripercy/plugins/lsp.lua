@@ -1,4 +1,5 @@
 return {
+	-- TODO: Split LSP configs and Completion config into seperate files
 	"neovim/nvim-lspconfig",
 	dependencies = {
 		"williamboman/mason.nvim",
@@ -11,6 +12,14 @@ return {
 		"L3MON4D3/LuaSnip",
 		"saadparwaiz1/cmp_luasnip",
 		"j-hui/fidget.nvim",
+		{
+			"ray-x/lsp_signature.nvim",
+			event = "VeryLazy",
+			opts = {},
+			config = function(_, opts)
+				require("lsp_signature").setup(opts)
+			end,
+		},
 	},
 
 	config = function()
@@ -105,6 +114,17 @@ return {
 						vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
 					end, "[T]oggle Inlay [H]ints")
 				end
+
+				local bufnr = event.buf
+				require("lsp_signature").on_attach({
+					hint_enable = false,
+					bind = true, -- This is mandatory, otherwise border config won't get registered.
+					handler_opts = {
+						border = "rounded",
+					},
+					select_signature_key = "<C-n>",
+					move_cursor_key = "<C-h>",
+				}, bufnr)
 			end,
 		})
 
@@ -183,6 +203,7 @@ return {
 			sources = cmp.config.sources({
 				{ name = "nvim_lsp" },
 				{ name = "luasnip" }, -- For luasnip users.
+				{ name = "path" },
 			}, {
 				{ name = "buffer" },
 			}),
