@@ -37,6 +37,7 @@ return { -- Autoformat
             c = { "clang-format" },
             cpp = { "clang-format" },
             sql = { "sql_formatter" },
+            rust = { "rustfmt", lsp_format = "fallback" },
         },
     },
     config = function()
