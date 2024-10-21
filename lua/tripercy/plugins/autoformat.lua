@@ -38,6 +38,7 @@ return { -- Autoformat
             cpp = { "clang-format" },
             sql = { "sql_formatter" },
             rust = { "rustfmt", lsp_format = "fallback" },
+            nix = { "nixpkgs-fmt" }
         },
     },
     config = function()
@@ -45,6 +46,9 @@ return { -- Autoformat
             cmd = {
                 "clangd",
                 "--fallback-style=webkit",
+            },
+            init_options = {
+                fallbackFlags = { '--std=c++20' }
             },
         })
         require("conform").setup({
