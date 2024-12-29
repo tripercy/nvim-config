@@ -48,7 +48,7 @@ return { -- Autoformat
                 "--fallback-style=webkit",
             },
             init_options = {
-                fallbackFlags = { '--std=c++20' }
+                --[[                 fallbackFlags = { '--std=c++20' } ]]
             },
         })
         require("conform").setup({

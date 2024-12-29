@@ -30,7 +30,7 @@ return {
         pcall(require("telescope").load_extension, "fzf")
         pcall(require("telescope").load_extension, "ui-select")
         vim.keymap.set("n", "<leader>sf", builtin.find_files, {})
-        vim.keymap.set("n", "<leader>sa", function() builtin.find_files({ no_ignore = true }) end, {})
+        vim.keymap.set("n", "<leader>sa", function() builtin.find_files({ no_ignore = true, hidden = true }) end, {})
         vim.keymap.set("n", "<leader>sg", builtin.live_grep, {})
         vim.keymap.set("n", "<leader>sb", builtin.buffers, {})
         vim.keymap.set("n", "<leader>sh", builtin.help_tags, {})
