@@ -28,15 +28,6 @@ return { -- Autoformat
 		end,
 	},
 	config = function()
-		require("lspconfig").clangd.setup({
-			cmd = {
-				"clangd",
-				"--fallback-style=webkit",
-			},
-			init_options = {
-				--[[                 fallbackFlags = { '--std=c++20' } ]]
-			},
-		})
 		require("conform").setup({
 			log_level = vim.log.levels.DEBUG,
 			formatters_by_ft = {
@@ -47,15 +38,24 @@ return { -- Autoformat
 				-- You can use a sub-list to tell conform to run *until* a formatter
 				-- is found.
 				-- javascript = { { "prettierd", "prettier" } },
-				c = { "clang-format" },
-				cpp = { "clang-format" },
+				c = { "c_formatter" },
+				cpp = { "c_formatter" },
 				sql = { "sql_formatter" },
 				rust = { "rustfmt", lsp_format = "fallback" },
 				nix = { "nixpkgs_fmt" },
+				html = { "html_beautifier" },
+				htmldjango = { "djlint" },
 			},
 			format_on_save = {
 				lsp_fallback = true,
 				async = false,
+			},
+
+			formatters = {
+				c_formatter = {
+					command = "clang-format",
+					args = "-style='{BasedOnStyle: LLVM, IndentWidth: 4}'",
+				},
 			},
 		})
 	end,
