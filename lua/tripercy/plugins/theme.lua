@@ -2,7 +2,7 @@ return {
     "catppuccin/nvim",
     name = "catppuccin",
     dependencies = {
-        'freddiehaddad/feline.nvim',
+        'famiu/feline.nvim',
     },
     priority = 1000,
 

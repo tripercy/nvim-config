@@ -86,6 +86,6 @@ return {
                 end,
             }
         })
-        vim.keymap.set('n', '<leader>o', '<cmd>Oil<Cr>')
+        vim.keymap.set('n', '-', '<cmd>Oil<Cr>')
     end
 }
