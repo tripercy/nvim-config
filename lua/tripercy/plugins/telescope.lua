@@ -29,12 +29,14 @@ return {
         local builtin = require("telescope.builtin")
         pcall(require("telescope").load_extension, "fzf")
         pcall(require("telescope").load_extension, "ui-select")
-        vim.keymap.set("n", "<leader>sf", builtin.find_files, {})
+        require('telescope').load_extension('bookmarks')
+        vim.keymap.set("n", "<leader>sf", function() builtin.find_files({ hidden = false }) end, {})
         vim.keymap.set("n", "<leader>sa", function() builtin.find_files({ no_ignore = true, hidden = true }) end, {})
         vim.keymap.set("n", "<leader>sd", function() builtin.fd({ find_command = { "fd", "-t=d" } }) end, {})
         vim.keymap.set("n", "<leader>sg", builtin.live_grep, {})
         vim.keymap.set("n", "<leader>sb", builtin.buffers, {})
         vim.keymap.set("n", "<leader>sh", builtin.help_tags, {})
+        vim.keymap.set("n", "<leader>sm", require('telescope').extensions.bookmarks.list, {})
         vim.keymap.set("n", "<leader>gb", builtin.git_branches, {})
     end,
 }
