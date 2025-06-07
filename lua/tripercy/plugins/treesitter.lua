@@ -1,8 +1,5 @@
 return {
 	"nvim-treesitter/nvim-treesitter",
-	dependencies = {
-		"nvim-treesitter/nvim-treesitter-context",
-	},
 	build = ":TSUpdate",
 	config = function()
 		require("nvim-treesitter.configs").setup({
@@ -19,7 +16,7 @@ return {
 				"cmake",
 				"diff",
 				"markdown",
-                "sql",
+				"sql",
 			},
 
 			-- Install parsers synchronously (only applied to `ensure_installed`)
@@ -46,6 +43,7 @@ return {
 		})
 
 		local treesitter_parser_config = require("nvim-treesitter.parsers").get_parser_configs()
+
 		treesitter_parser_config.templ = {
 			install_info = {
 				url = "https://github.com/vrischmann/tree-sitter-templ.git",

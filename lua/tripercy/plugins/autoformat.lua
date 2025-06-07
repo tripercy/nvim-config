@@ -43,8 +43,10 @@ return { -- Autoformat
 				sql = { "sql_formatter" },
 				rust = { "rustfmt", lsp_format = "fallback" },
 				nix = { "nixpkgs_fmt" },
-				html = { "html_beautifier" },
+				html = { "prettier" },
 				htmldjango = { "djlint" },
+				css = { "prettier" },
+				json = { "prettier" },
 			},
 			format_on_save = {
 				lsp_fallback = true,
