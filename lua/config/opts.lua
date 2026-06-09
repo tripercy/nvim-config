@@ -3,18 +3,18 @@ vim.loader.enable()
 vim.g.have_nerd_font = true
 
 -- Clipboard
-vim.g.clipboard = {
-    name = "wl-clipboard",
-    copy = {
-        ["+"] = "wl-copy",
-        ["*"] = "wl-copy",
-    },
-    paste = {
-        ["+"] = "wl-paste",
-        ["*"] = "wl-paste",
-    },
-    cache_enabled = 0,
-}
+-- vim.g.clipboard = {
+--     name = "wl-clipboard",
+--     copy = {
+--         ["+"] = "wl-copy",
+--         ["*"] = "wl-copy",
+--     },
+--     paste = {
+--         ["+"] = "wl-paste",
+--         ["*"] = "wl-paste",
+--     },
+--     cache_enabled = 0,
+-- }
 
 -- Relative line numbers
 vim.opt.number = true
@@ -44,9 +44,13 @@ vim.opt.smartcase = true
 -- Theme
 vim.opt.termguicolors = true
 vim.cmd.colorscheme("catppuccin-frappe")
+vim.opt.showmode = false
 
 -- Always show signcolumn
 vim.opt.signcolumn = "yes"
 
 -- Decrease update time
 vim.opt.updatetime = 250
+
+-- Pop up border
+vim.opt.winborder = "rounded"
