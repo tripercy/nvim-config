@@ -29,7 +29,11 @@ vim.keymap.set('n', '<leader>sf', builtin.find_files, { desc = 'Telescope find f
 vim.keymap.set('n', '<leader>sg', builtin.live_grep, { desc = 'Telescope live grep' })
 vim.keymap.set('n', '<leader>sh', builtin.help_tags, { desc = 'Telescope help tags' })
 vim.keymap.set('n', '<leader>sq', builtin.quickfix, { desc = 'Telescope quickfix list' })
-vim.keymap.set('n', '<leader>sr', builtin.resume, { desc = 'Telescope search dir' })
+vim.keymap.set('n', '<leader>sr', builtin.resume, { desc = 'Telescope search resume' })
+vim.keymap.set('n', '<leader>sa', function()
+    builtin.find_files({ no_ignore = true })
+end, { desc = 'Telescope search dir' })
+
 local telescope_sd = require("config.funcs.telescope_sd")
 vim.keymap.set('n', '<leader>sd', telescope_sd.search_dirs, { desc = 'Telescope search dir' })
 
@@ -51,6 +55,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 vim.keymap.set("n", "]d", vim.diagnostic.goto_next, opts)
 vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, opts)
 vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, opts)
+vim.keymap.set("n", "<leader>q", vim.diagnostic.setqflist, opts)
 
 -- luasnip
 local ls = require("luasnip")

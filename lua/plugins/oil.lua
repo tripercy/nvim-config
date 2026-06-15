@@ -77,5 +77,11 @@ return {
                 return name == ".."
             end,
         },
+        -- disable <C-h> and <C-l> for navigation
+        keymaps = {
+            ["<C-h>"] = false,
+            ["<C-l>"] = false,
+            ["<C-r>"] = "actions.refresh",
+        }
     },
 }

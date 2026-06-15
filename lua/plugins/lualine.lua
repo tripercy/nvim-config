@@ -10,6 +10,11 @@ return {
                 component_separators = "",
             },
 
+            extensions = {
+                "oil",
+                "quickfix",
+            },
+
             sections = {
                 lualine_a = { "mode" },
                 lualine_b = { "branch" },
