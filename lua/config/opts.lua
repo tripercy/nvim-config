@@ -23,6 +23,9 @@ vim.opt.relativenumber = true
 -- Keep 8 lines above/below cursor
 vim.opt.scrolloff = 8
 
+-- Line break
+vim.opt.linebreak = true
+
 -- Tabs
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4

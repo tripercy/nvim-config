@@ -3,5 +3,14 @@ return {
 	-- follow latest release.
 	version = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
 	-- install jsregexp (optional!).
-	build = "make install_jsregexp"
+	build = "make install_jsregexp",
+
+	config = function()
+		local ls = require("luasnip")
+
+		-- Enable lazy-loading for Lua snippet files from ~/.config/nvim/luasnippets/
+		require("luasnip.loaders.from_lua").lazy_load({
+			paths = { vim.fn.stdpath("config") .. "/luasnippets" },
+		})
+	end,
 }
